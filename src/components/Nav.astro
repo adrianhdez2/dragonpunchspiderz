@@ -1,21 +1,24 @@
 ---
 import { LINK_NAV } from "@/utils/constants";
 import ItemNav from "./ItemNav.astro";
-import { AlignRight, ChevronDown } from "@lucide/astro";
+import { ChevronDown } from "@lucide/astro";
 ---
 
-<nav class="z-10 flex flex-col md:flex-row items-start justify-between w-full max-w-[1440px] gap-y-4 md:gap-y-0">
+<nav
+    class="z-10 flex flex-col md:flex-row items-start justify-between w-full max-w-[1440px] gap-y-4 md:gap-y-0"
+>
     <div class="md:w-auto w-full flex items-center justify-between">
         <img
             src="/profile.png"
             alt="Imagen de DragonPunchSpiderZ"
             class="size-10 lg:hidden border border-white shadow rounded-full bg-[#C11C0F]"
         />
-        <button class="flex md:hidden cursor-pointer"
-            ><AlignRight class="md:hidden size-6 text-white" /></button
-        >
+        <button id="button-menu" class="flex md:hidden cursor-pointer"></button>
     </div>
-    <ul class="flex flex-col w-full md:w-auto items-center md:items-start md:flex-row mt-2 lg:mt-0 md:space-x-8 gap-y-8 md:gap-y-0 h-auto">
+    <ul
+        id="menu"
+        class="hidden md:flex flex-col w-full md:w-auto items-center md:items-start md:flex-row mt-2 lg:mt-0 md:space-x-8 gap-y-8 md:gap-y-0 h-auto"
+    >
         {
             LINK_NAV.map(({ title, url, color }) => (
                 <ItemNav title={title} url={url} color={color} />
@@ -24,7 +27,7 @@ import { AlignRight, ChevronDown } from "@lucide/astro";
         <li>
             <button
                 id="button-submenu"
-                class="flex items-center justify-between gap-2 uppercase text-white group cursor-pointer"
+                class="flex item-nav items-center justify-between gap-2 uppercase text-white group cursor-pointer"
                 >Portafolio
                 <ChevronDown class="size-4 text-white" />
             </button>
@@ -33,7 +36,9 @@ import { AlignRight, ChevronDown } from "@lucide/astro";
                 id="submenu-dropdown"
                 class="font-normal hidden text-base mt-2 md:bg-white/10 md:backdrop-blur-md md:divide-y rounded-sm md:shadow-sm w-auto"
             >
-                <ul class="md:py-2 w-full text-sm text-center md:text-start text-white uppercase">
+                <ul
+                    class="md:py-2 w-full text-sm text-center md:text-start text-white uppercase"
+                >
                     <li>
                         <a
                             href="#renders"
@@ -54,13 +59,14 @@ import { AlignRight, ChevronDown } from "@lucide/astro";
                         <a
                             href="#videos"
                             data-url="#videos"
-                            class="block md:px-4 py-2 hover:bg-black/10">Videos</a
+                            class="block md:px-4 py-2 hover:bg-black/10"
+                            >Videos</a
                         >
                     </li>
                 </ul>
             </div>
         </li>
-        <li>
+        <li class="item-nav">
             <a
                 href={"#contacto"}
                 class="text-white bg-black px-3 py-1 rounded-sm text-center text-base font-medium tracking-[0.16px] shadow uppercase"
