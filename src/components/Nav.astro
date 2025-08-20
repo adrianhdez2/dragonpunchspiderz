@@ -29,7 +29,7 @@ import { ChevronDown } from "@lucide/astro";
                 id="button-submenu"
                 class="flex item-nav items-center justify-between gap-2 uppercase text-white group cursor-pointer"
                 >Portafolio
-                <ChevronDown class="size-4 text-white" />
+                <ChevronDown class="size-4 transform transition duration-300 text-white" />
             </button>
 
             <div
@@ -39,7 +39,7 @@ import { ChevronDown } from "@lucide/astro";
                 <ul
                     class="md:py-2 w-full text-sm text-center md:text-start text-white uppercase"
                 >
-                    <li>
+                    <li class="item-nav">
                         <a
                             href="#renders"
                             data-url="#renders"
@@ -47,7 +47,7 @@ import { ChevronDown } from "@lucide/astro";
                             >Renders 3D</a
                         >
                     </li>
-                    <li>
+                    <li class="item-nav">
                         <a
                             href="#imagenes"
                             data-url="#imagenes"
@@ -55,7 +55,7 @@ import { ChevronDown } from "@lucide/astro";
                             >Imágenes</a
                         >
                     </li>
-                    <li>
+                    <li class="item-nav">
                         <a
                             href="#videos"
                             data-url="#videos"
