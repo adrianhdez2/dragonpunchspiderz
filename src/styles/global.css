@@ -5,6 +5,56 @@ body {
     scroll-behavior: smooth;
 }
 
+#hero-bg-menu {
+    opacity: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .item-nav {
+        transform: translateX(-1000%);
+        animation: moveLeft 0.5s forwards;
+    }
+
+    #hero-bg-menu{
+        animation: animacion 0.5s forwards;
+    }
+
+    .item-nav:nth-child(2) {
+        animation-delay: 0.01s;
+    }
+
+    .item-nav:nth-child(3) {
+        animation-delay: 0.02s;
+    }
+
+    .item-nav:nth-child(4) {
+        animation-delay: 0.03s;
+    }
+
+    .item-nav:nth-child(5) {
+        animation-delay: 0.04s;
+    }
+}
+
+@keyframes moveLeft {
+    0% {
+        transform: translateX(-1000%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes animacion {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 @theme {
     --color-background: #F6F6F6;
     --color-green-alternative: #10BF10;
