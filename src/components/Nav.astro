@@ -1,0 +1,65 @@
+---
+import { LINK_NAV } from "@/utils/constants";
+import ItemNav from "./ItemNav.astro";
+import { AlignRight, ChevronDown } from "@lucide/astro";
+---
+
+<nav class="flex items-center justify-between md:justify-end w-full max-w-[1440px]">
+    <img
+        src="/profile.png"
+        alt="Imagen de DragonPunchSpiderZ"
+        class="size-10 md:hidden border border-white shadow rounded-full bg-[#C11C0F]"
+    />
+    <button class="flex md:hidden cursor-pointer"><AlignRight class="md:hidden size-6 text-white" /></button>
+    <ul class="hidden md:flex space-x-8">
+        {
+            LINK_NAV.map(({ title, url, color }) => (
+                <ItemNav title={title} url={url} color={color} />
+            ))
+        }
+        <li>
+            <button
+                id="button-menu"
+                class="flex items-center justify-between gap-2 uppercase text-white group cursor-pointer"
+                >Portafolio
+                <ChevronDown class="size-4 text-white" />
+            </button>
+
+            <div
+                id="menu-dropdown"
+                class="font-normal hidden mt-2 bg-white/10 backdrop-blur-md divide-y rounded-sm shadow-sm w-auto"
+            >
+                <ul class="py-2 w-full text-sm text-white">
+                    <li>
+                        <a
+                            href="#renders"
+                            class="block px-4 py-2 hover:bg-black/10"
+                            >Renders 3D</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#imagenes"
+                            class="block px-4 py-2 hover:bg-black/10"
+                            >Imágenes</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#videos"
+                            class="block px-4 py-2 hover:bg-black/10">Videos</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a
+                href={"#contacto"}
+                class="text-white bg-black px-3 py-1 rounded-sm text-center text-base font-medium tracking-[0.16px] shadow uppercase"
+            >
+                Contacto
+            </a>
+        </li>
+    </ul>
+</nav>

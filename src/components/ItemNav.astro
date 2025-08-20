@@ -1,0 +1,17 @@
+---
+const { title, url, color } = Astro.props;
+---
+
+<li>
+    <a
+        href={url || "#"}
+        data-url={url}
+        class="text-white w-full h-full text-center text-base font-medium tracking-[0.16px] uppercase relative group"
+    >
+        {title}
+        <span
+            class="absolute left-0 right-0 -bottom-1 h-0.5 scale-x-0 origin-center bg-white transition-all duration-300 group-hover:scale-x-100"
+            style={`background-color: ${color}`}
+        ></span>
+    </a>
+</li>

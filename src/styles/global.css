@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+@theme {
+    --color-background: #F6F6F6;
+    --color-green-alternative: #10BF10;
+    --color-orange-alternative: #E57529;
+    --color-cyan-alternative: #5CECF4;
+    --color-purple-alternative: #E545AC;
+    --spacing-custom: 800px;
+}

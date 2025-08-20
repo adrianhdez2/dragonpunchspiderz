@@ -1,0 +1,21 @@
+---
+import InfoText from "./InfoText.astro";
+import Nav from "./Nav.astro";
+---
+
+<header
+    class="px-14 md:px-16 pt-6 pb-8 max-h-custom h-custom flex flex-col items-center justify-between bg-[url(/background.png)] bg-no-repeat bg-cover relative"
+>
+    <svg
+        class="absolute left-0 bottom-0 w-full "
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1920 343"
+        fill="none"
+    >
+        <path d="M1920 342V68L0 1V342H1440Z" fill="black" stroke="black"></path>
+    </svg>
+   <Nav />
+   <InfoText />
+</header>
+
+
