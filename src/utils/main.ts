@@ -1,7 +1,6 @@
 import { LINK_NAV } from "./constants";
 
 const LINK_URLS = LINK_NAV.map(item => item.url);
-console.log(LINK_URLS);
 
 const links = document.querySelectorAll<HTMLAnchorElement>("a[data-url]");
 
@@ -34,7 +33,7 @@ function updateActiveLink() {
         const url = link.getAttribute("data-url");
         const span = link.querySelector("span");
 
-         if (!url) return;
+        if (!url) return;
 
         // Para enlaces que son hashes (empiezan con #)
         if (url && url.startsWith("#")) {
