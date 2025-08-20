@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const menu = document.getElementById("menu") as HTMLUListElement;
     const heroBgMenu = document.getElementById("hero-bg-menu") as unknown as SVGElement;
     const menuDropdown = document.getElementById("submenu-dropdown") as HTMLDivElement;
+    const iconChevron = document.querySelector("#button-submenu svg") as SVGElement;
 
     const menuIcon = ' <svg class="md:hidden size-6 text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-align-right-icon lucide-align-right"><path d="M21 12H9"/><path d="M21 18H7"/><path d="M21 6H3"/></svg>';
     const closeIcon = '<svg class="md:hidden size-6 text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>'
@@ -23,9 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
             hide(menuDropdown);
             return;
         }
-
+        
         if (menu.classList.contains("flex")) {
             hide(menu);
+            iconChevron.style.rotate = "0deg";
             return;
         }
     });
