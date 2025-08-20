@@ -7,10 +7,6 @@ import FacebookIcon from "@/icons/FacebookIcon.astro";
 
 const redes = [
     {
-        icon: MapPin,
-        text: "Tabasco, México",
-    },
-    {
         icon: YoutubeIcon,
         text: "@dragonpunchz",
         url: "https://www.youtube.com/@dragonpunchz",
@@ -34,27 +30,42 @@ const redes = [
 ---
 
 <section
-    class="w-full max-w-[1440px] h-full max-h-[200px] z-10 flex text-white gap-x-10"
+    class="w-full items-center max-w-[1440px] h-full max-h-[200px] z-10 flex text-white gap-x-10"
 >
     <img
         src="/profile.png"
         alt="Image de DragonPunchSpiderZ"
-        class="aspect-square rounded-full size-[200px] bg-[#C11C0F] border-4 border-white shadow"
+        class="aspect-square rounded-full size-24 lg:size-[200px] bg-[#C11C0F] border-2 lg:border-4 border-white shadow lg:flex hidden"
     />
-    <div class="w-full h-full flex flex-col items-start justify-between">
-        <div class="flex flex-col items-start justify-start gap-y-5">
-            <h1 class="font-bold text-[40px]">Jorge Enrique Jiménez Moreno</h1>
-            <p>DISEÑADOR AUDIOVISUAL | MODELADOR 3D | MOTION GRAPHICS</p>
+    <div
+        class="w-full h-full flex flex-col items-start justify-end gap-y-14 md:gap-y-0 md:justify-between"
+    >
+        <div class="flex flex-col items-start justify-start gap-y-4 md:gap-y-5">
+            <h1 class="font-bold text-[32px] md:text-[40px]">
+                Jorge Enrique Jiménez Moreno
+            </h1>
+            <p class="text-base md:text-xl">
+                DISEÑADOR AUDIOVISUAL | MODELADOR 3D | MOTION GRAPHICS
+            </p>
         </div>
         <ul
             class="w-full flex items-center justify-between text-base text-[#BBBBBA]"
         >
+            <li class="flex items-center gap-x-2">
+                <MapPin class="w-auto h-4 lgh-5 xl:h-6" />
+                <span class="text-xs xl:text-base">Tabasco, México</span>
+            </li>
             {
                 redes.map((red) => (
                     <li>
-                        <a class="flex items-center gap-x-2" target="_blank" rel="noopener noreferrer" href={red.url}>
-                            <red.icon class="w-auto h-6" />
-                            <span>{red.text}</span>
+                        <a
+                            class="hidden md:flex items-center gap-x-2"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href={red.url}
+                        >
+                            <red.icon class="w-auto h-4 lgh-5 xl:h-6" />
+                            <span class="text-xs xl:text-base">{red.text}</span>
                         </a>
                     </li>
                 ))
