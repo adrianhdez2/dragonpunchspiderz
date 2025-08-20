@@ -1,12 +1,22 @@
 @import "tailwindcss";
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth;
 }
 
 #hero-bg-menu {
     opacity: 0;
+}
+
+.sombra-subtitulo {
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: #000;
+    color: #fff;
+    z-index: -1;
 }
 
 @media screen and (max-width: 768px) {
@@ -15,7 +25,7 @@ body {
         animation: moveLeft 0.5s forwards;
     }
 
-    #hero-bg-menu{
+    #hero-bg-menu {
         animation: animacion 0.5s forwards;
     }
 
@@ -40,6 +50,7 @@ body {
     0% {
         transform: translateX(-1000%);
     }
+
     100% {
         transform: translateX(0%);
     }
