@@ -1,0 +1,18 @@
+---
+import SectionContainer from "@/components/SectionContainer.astro";
+import Title from "../Title.astro";
+---
+
+<SectionContainer id="about" class="items-start md:items-center gap-6 md:gap-9 flex-col md:flex-row">
+    <Title title="Sobre mí" class="md:hidden" />
+    <img src="/about.webp" alt="Imagen sobre mí" class="w-[251px] h-[315px] lg:w-[449px] lg:h-[563px] object-cover mx-auto" />
+    <div class="flex flex-col space-y-9">
+        <Title title="Sobre mí" class="hidden md:flex" />
+        <p class="md:tracking-[2px] font-medium text-base xl:text-xl leading-[180.037%]">
+            Me encanta dar vida a ideas a través del video, el 3D y las
+            experiencias interactivas. Desde la edición y producción
+            audiovisual, hasta el modelado, animación y diseño para videojuegos,
+            busco crear proyectos que sorprendan y conecten con las personas.
+        </p>
+    </div>
+</SectionContainer>
