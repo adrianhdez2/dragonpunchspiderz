@@ -1,0 +1,27 @@
+---
+import SectionContainer from "../SectionContainer.astro";
+import Title from "../Title.astro";
+import CardRenders from "./CardRenders.astro";
+---
+
+<SectionContainer id="renders" class="flex-col gap-6 md:gap-10 lg:gap-16">
+    <Title title="Renders 3D" />
+    <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-[700px_auto] gap-4 w-full">
+        <div class="grid grid-rows-2 gap-4 w-full h-auto max-w-[700px]">
+            <CardRenders size="large" imgSrc="chimenea.webp" />
+            <div
+                class="grid grid-cols-2 h-auto md:grid-cols-1 md:grid-rows-2 gap-4 w-full"
+            >
+                <CardRenders size="small" imgSrc="mascara.webp" />
+                <CardRenders size="small" imgSrc="botella.webp" />
+            </div>
+        </div>
+        <div class="grid grid-rows-[auto_auto] gap-4 w-full">
+            <CardRenders size="medium" imgSrc="libros.webp" />
+            <div class="grid grid-cols-2 md:grid-cols-1 md:grid-rows-2 gap-4">
+                <CardRenders size="medium" imgSrc="dibujo.webp" />
+                <CardRenders size="medium" imgSrc="hojas.webp" />
+            </div>
+        </div>
+    </div>
+</SectionContainer>
