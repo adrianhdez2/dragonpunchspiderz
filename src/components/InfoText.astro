@@ -32,7 +32,7 @@ import { MapPin } from "@lucide/astro";
                 <span class="text-xs xl:text-base">Tabasco, México</span>
             </li>
             {
-                redes.map((red) => (
+                redes.slice(0, 4).map((red) => (
                     <li>
                         <a
                             class="hidden md:flex items-center gap-x-1 lg:gap-x-2 hover:text-white group transition-colors duration-300"

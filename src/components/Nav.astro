@@ -80,7 +80,7 @@ import { ChevronDown } from "@lucide/astro";
         <li class="item-nav flex md:hidden">
             <ul class="flex items-center gap-8 pt-5">
                 {
-                    redes.map((red) => (
+                    redes.slice(0, 4).map((red) => (
                         <li>
                             <a
                                 class="text-[#BBBBBA] hover:text-white transition-colors duration-300"
