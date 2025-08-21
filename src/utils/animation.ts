@@ -16,6 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
         
         links.forEach(link => {
             link.addEventListener("click", (event) => {
+                if(heroBgMenu.classList.contains("flex")) {
+                    hide(heroBgMenu);
+                    buttonMenuIcon.innerHTML = menuIcon;
+                }
+
                 if (menu.classList.contains("flex")) {
                     hide(menu);
                     iconChevron.style.rotate = "0deg";
