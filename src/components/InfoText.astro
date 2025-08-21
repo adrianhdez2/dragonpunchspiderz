@@ -35,12 +35,12 @@ import { MapPin } from "@lucide/astro";
                 redes.map((red) => (
                     <li>
                         <a
-                            class="hidden md:flex items-center gap-x-1 lg:gap-x-2"
+                            class="hidden md:flex items-center gap-x-1 lg:gap-x-2 hover:text-white group transition-colors duration-300"
                             target="_blank"
                             rel="noopener noreferrer"
                             href={red.url}
                         >
-                            <red.icon class="w-auto h-4 xl:h-6" />
+                            <red.icon class="w-auto h-4 xl:h-6 group-hover:fill-white" />
                             <span class="text-xs xl:text-base">{red.text}</span>
                         </a>
                     </li>
