@@ -1,0 +1,23 @@
+---
+interface Props {
+    size: "small" | "medium" | "large";
+    imgSrc: string;
+}
+
+const { size, imgSrc } = Astro.props;
+
+---
+
+<button
+    class:list={["rounded-xl shadow-custom overflow-hidden group cursor-pointer w-full", 
+        size === "small" && "h-auto md:h-[161px] lg:h-[281px]",
+        size === "medium" && "h-[217px] lg:h-[380px]",
+        size === "large" && "h-auto md:h-[330px] lg:h-[578px]"
+    ]}
+>
+    <img
+        src={`/renders/${imgSrc}`}
+        class="rounded-xl w-full h-full object-cover group-hover:scale-105 group-hover:-rotate-1 transition-transform duration-300"
+        alt=""
+    />
+</button>
