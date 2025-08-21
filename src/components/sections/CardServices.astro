@@ -1,0 +1,30 @@
+---
+import { Brush } from "@lucide/astro";
+
+interface Props {
+    title: string;
+    description: string;
+    icon: typeof Brush;
+    classColor: "orange-card" | "red-card" | "green-card" | "purple-card";
+}
+
+const { title, description, icon: Icon, classColor } = Astro.props;
+---
+
+<div
+    class:list={[
+        "bg-white rounded-lg p-8 flex flex-col space-y-6 lg:space-y-9 shadow-md hover:text-white transition-all duration-100 ease-in-out",
+        (classColor == "orange-card" && "hover:bg-gradient-to-r hover:from-orange-600 hover:to-orange-400 hover:shadow-orange-500/50"),
+        (classColor == "red-card" && "hover:bg-gradient-to-r hover:from-red-600 hover:to-red-400 hover:shadow-red-500/50"),
+        (classColor == "green-card" && "hover:bg-gradient-to-r hover:from-green-600 hover:to-green-400 hover:shadow-green-500/50"),
+        (classColor == "purple-card" && "hover:bg-gradient-to-r hover:from-pink-600 hover:to-pink-400 hover:shadow-pink-500/50"),
+    ]}
+>
+    <Icon class="size-12 lg:size-16 aspect-square" />
+    <div class="flex flex-col space-y-3">
+        <h3 class="text-base lg:text-xl font-semibold">{title}</h3>
+        <p class="text-sm lg:text-base font-normal">
+            {description}
+        </p>
+    </div>
+</div>
