@@ -93,6 +93,11 @@ document.addEventListener("DOMContentLoaded", () => {
     menuDropdown?.addEventListener("mouseenter", showMenuDropdown);
     menuDropdown?.addEventListener("mouseleave", hiddenMenuDropdown);
 
+    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        menuDropdown?.addEventListener("click", hiddenMenuDropdown);
+    }
+    
+
     function hiddenMenuDropdown() {
         menuDropdown.classList.remove("flex");
         menuDropdown.classList.add("hidden");

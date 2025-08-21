@@ -10,6 +10,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     buttonMenuIcon.innerHTML = menuIcon;
 
+    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        const links = document.querySelectorAll<HTMLAnchorElement>("a[data-url]");
+        console.log(links);
+        
+        links.forEach(link => {
+            link.addEventListener("click", (event) => {
+                if (menu.classList.contains("flex")) {
+                    hide(menu);
+                    iconChevron.style.rotate = "0deg";
+                    return;
+                }
+            });
+        });
+    }
+
     buttonMenuIcon.addEventListener("click", () => {
         if (heroBgMenu.classList.contains("hidden")) {
             show(heroBgMenu);
@@ -24,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
             hide(menuDropdown);
             return;
         }
-        
+
         if (menu.classList.contains("flex")) {
             hide(menu);
             iconChevron.style.rotate = "0deg";
