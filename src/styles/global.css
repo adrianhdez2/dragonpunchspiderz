@@ -19,6 +19,10 @@ body {
     z-index: -1;
 }
 
+.shadow-custom {
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.25), 0 4px 70px 0 rgba(0, 0, 0, 0.25) inset;
+}
+
 @media screen and (max-width: 768px) {
     .item-nav {
         transform: translateX(-1000%);
