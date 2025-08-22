@@ -1,19 +1,52 @@
 ---
 import "@/styles/global.css";
 import "@fontsource/poppins";
+const title = "Jorge Enrique Jiménez Moreno | Mi Portafolio"
+const canonicalURL = "https://www.dragonpunchspiderz.website/"
+const description = "Me encanta dar vida a ideas a través del video, el 3D y las experiencias interactivas. Desde la edición y producción audiovisual, hasta el modelado, animación y diseño para videojuegos, busco crear proyectos que sorprendan y conecten con las personas."
+const image = "https://www.dragonpunchspiderz.website/about.webp"
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-		<title>Jorge Enrique Jiménez Moreno | Mi Portafolio</title>
-	</head>
-	<body class="flex flex-col gap-y-14 md:gap-y-20 xl:gap-y-28 bg-[#F6F6F6] relative">
-		<slot />
-	</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta
+            name="keywords"
+            content="Jorge Enrique Jiménez Moreno, portafolio, desarrollo web, diseño, 3D, video, animación, videojuegos, seven731, seven, dragonpunchspiderz, niveles de poder, dragonpunchz, tabasco, blender, photoshop, "
+        />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonicalURL} />
+        
+        <meta property="og:image" content={new URL(image, Astro.url)} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:site_name" content="Jorge Enrique Jiménez Moreno" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="es_ES" />
+        
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@@SvN741" />
+        <meta name="twitter:creator" content="@@SvN741" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={new URL(image, Astro.url)} />
+        
+        <link rel="apple-touch-icon" href={image} />
+        
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index, follow" />
+        
+        <title>{title}</title>
+    </head>
+    <body
+        class="flex flex-col gap-y-14 md:gap-y-20 xl:gap-y-28 bg-[#F6F6F6] relative"
+    >
+        <slot />
+    </body>
 </html>
 
 <script src="../utils/main.js"></script>
