@@ -1,4 +1,5 @@
 ---
+import { VIDEOS } from "@/utils/constants";
 import SectionContainer from "../SectionContainer.astro";
 import Title from "../Title.astro";
 import VideoPlayer from "./VideoPlayer";
@@ -7,7 +8,14 @@ import VideoPlayer from "./VideoPlayer";
 <SectionContainer id="videos" class="flex-col gap-6 md:gap-10 lg:gap-16">
     <Title title="Videos" />
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-9">
-        <VideoPlayer client:load src="render_xdevlab.mp4" poster="render_xdevlab.webp" />
-        <VideoPlayer client:load src="edicion_emojis.mp4" poster="edicion_emojis.webp" />
+        {
+            VIDEOS.map(({src, poster}) => (
+                <VideoPlayer
+                    client:load
+                    src={src}
+                    poster={poster}
+                />
+            ))
+        }
     </div>
 </SectionContainer>

@@ -56,3 +56,18 @@ export const LINK_NAV = [
         color: "#E545AC"
     },
 ]
+
+export const VIDEOS = [
+    {
+        src: "render_xdevlab.mp4",
+        poster: "render_xdevlab.webp",
+    },
+    {
+        src: "edicion_emojis.mp4",
+        poster: "edicion_emojis.webp",
+    },
+    {
+        src: "estatuas.mp4",
+        poster: "estatuas.webp",
+    },
+]
