@@ -6,15 +6,17 @@ import CardEdicion from "./CardEdicion.astro";
 
 <SectionContainer id="imagenes" class="flex-col gap-6 md:gap-10 lg:gap-16">
     <Title title="Edición de imágenes" />
-    <div class="grid grid-cols-1 grid-rows-[repeat(3,300px)] xl:grid-rows-[500px_400px_400px] gap-4 w-full">
-        <CardEdicion size="large" imgSrc="portada_1.webp" />
+    <div
+        class="gallery grid grid-cols-1 grid-rows-[repeat(3,300px)] xl:grid-rows-[500px_400px_400px] gap-4 w-full"
+    >
+        <CardEdicion size="large" imgSrc="portada_1.webp" width={1200} height={1200} />
         <div class="grid sm:grid-cols-2 md:grid-cols-[auto_400px] gap-4">
-            <CardEdicion size="medium" imgSrc="portada_4.webp" />
-            <CardEdicion size="medium" imgSrc="portada_5.webp" />
+            <CardEdicion size="medium" imgSrc="portada_4.webp" width={1200} height={675} />
+            <CardEdicion size="medium" imgSrc="portada_5.webp" width={1200} height={1200} />
         </div>
         <div class="grid sm:grid-cols-2 md:grid-cols-[400px_auto] gap-4">
-            <CardEdicion size="medium" imgSrc="portada_3.webp" />
-            <CardEdicion size="medium" imgSrc="portada_2.webp" />
+            <CardEdicion size="medium" imgSrc="portada_3.webp" width={1200} height={1440} />
+            <CardEdicion size="medium" imgSrc="portada_2.webp" width={1200} height={675} />
         </div>
     </div>
 </SectionContainer>

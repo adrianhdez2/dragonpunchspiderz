@@ -18,3 +18,17 @@ import "@fontsource/poppins";
 
 <script src="../utils/main.js"></script>
 <script src="../utils/animation.js"></script>
+<script>
+    import PhotoSwipeLightbox from "photoswipe/lightbox";
+    import "photoswipe/style.css";
+
+    if (typeof window !== "undefined") {
+        const lightbox = new PhotoSwipeLightbox({
+            gallery: ".gallery",
+            children: "a",
+            pswpModule: () => import("photoswipe"),
+        });
+
+        lightbox.init();
+    }
+</script>

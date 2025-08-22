@@ -2,12 +2,18 @@
 interface Props {
     size: "medium" | "large";
     imgSrc: string;
+    width: number;
+    height: number;
 }
 
-const { size, imgSrc } = Astro.props;
+const { size, imgSrc, width, height } = Astro.props;
 ---
 
-<button
+<a
+    href={`/imagenes/${imgSrc}`}
+    data-pswp-width={width}
+    data-pswp-height={height}
+    data-cropped="true"
     class:list={[
         "rounded-xl shadow-custom overflow-hidden group cursor-pointer w-full",
         size === "medium" && "h-auto lg:h-[300px] xl:h-[400px]",
@@ -19,4 +25,4 @@ const { size, imgSrc } = Astro.props;
         class="rounded-xl w-full h-full object-cover group-hover:scale-105 group-hover:-rotate-1 transition-transform duration-300"
         alt=""
     />
-</button>
+</a>
