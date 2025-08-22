@@ -5,5 +5,5 @@ const { title, class: className = '' } = Astro.props;
 <h2 class:list={["relative uppercase text-2xl lg:text-4xl font-bold tracking-[3.6px] text-[#060606]", className]}>
     {title}
 
-    <span class="absolute top-0.5 -left-0.5 text-2xl lg:text-4xl font-bold tracking-[3.6px] sombra-subtitulo">{title}</span>
+    <span id="text" class="perspective-normal absolute top-0.5 -left-0.5 text-2xl lg:text-4xl font-bold tracking-[3.6px] sombra-subtitulo">{title}</span>
 </h2>
