@@ -5,9 +5,24 @@ import CardServices from "./CardServices.astro";
 import { Brush, Clapperboard, Gamepad2, RectangleGoggles } from "@lucide/astro";
 ---
 
-<SectionContainer id="servicios" class="flex-col gap-6 md:gap-10 lg:gap-16">
-    <Title title="Servicios" />
-    <div class="grid grid-cols-1 grid-rows-4 md:grid-cols-2 md:grid-rows-2 gap-6 lg:gap-9">
+<SectionContainer 
+    id="servicios" 
+    class="flex-col gap-6 md:gap-10 lg:gap-16"
+    ariaLabel="Sección de servicios profesionales"
+    ariaLabelledBy="services-title"
+    role="region"
+>
+    <Title 
+        title="Servicios" 
+        level={2}
+        id="services-title"
+        ariaLabel="Encabezado de servicios profesionales"
+    />
+    <div 
+        class="grid grid-cols-1 grid-rows-4 md:grid-cols-2 md:grid-rows-2 gap-6 lg:gap-9"
+        role="list"
+        aria-label="Lista de servicios ofrecidos"
+    >
         <CardServices
             title="Edición y producción de video"
             description="Transformo ideas en piezas audiovisuales impactantes, cuidando cada detalle desde la grabación hasta la postproducción para lograr un resultado profesional y atractivo."

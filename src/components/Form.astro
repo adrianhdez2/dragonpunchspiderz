@@ -1,44 +1,131 @@
-<form
-    id="contact-form"
-    class="w-full max-w-[620px] flex flex-col mx-auto gap-8"
->
-    <h2 class="uppercase text-white text-xl font-bold text-center">
-        Contáctame
-    </h2>
-    <div class="w-full flex flex-col gap-5">
-        <div class="w-full flex flex-col sm:flex-row gap-5">
-            <input
-                type="text"
-                name="name"
-                id="name"
-                placeholder="Nombre"
-                class="border border-white/25 text-white placeholder:text-white/80 p-3 w-full flex-1 rounded-md text-[14px]"
-                required
-                autocomplete="name"
-            />
-            <input
-                type="email"
-                name="email"
-                id="e-mail"
-                placeholder="Correo electrónico"
-                class="border border-white/25 text-white placeholder:text-white/80 p-3 w-full flex-1 rounded-md text-[14px]"
-                required
-                autocomplete="email"
-            />
-        </div>
-        <textarea
-            name="message"
-            id="message"
-            placeholder="Déjame saber tu consulta"
-            cols="30"
-            rows="5"
-            class="border border-white/25 text-white placeholder:text-white/80 p-3 w-full resize-none rounded-md text-[14px]"
-            autocomplete="off"
-            required></textarea>
-        <button
-            type="submit"
-            class="w-full p-3 text-white/80 cursor-pointer rounded-md bg-white/10 not-disabled:hover:bg-white/20 transition-colors duration-300 ease-in-out disabled:text-white/20"
-            >Enviar</button
+<div class="w-full" role="complementary" aria-label="Formulario de contacto">
+    <form
+        id="contact-form"
+        class="w-full max-w-[620px] flex flex-col mx-auto gap-8"
+        role="form"
+        aria-labelledby="form-title"
+        aria-describedby="form-description"
+        novalidate
+    >
+        <h2
+            id="form-title"
+            class="uppercase text-white text-xl font-bold text-center"
+            role="heading"
+            aria-level="2"
         >
-    </div>
-</form>
+            Contáctame
+        </h2>
+        <p id="form-description" class="sr-only">
+            Formulario de contacto para consultas profesionales. Todos los
+            campos son obligatorios.
+        </p>
+        <div
+            class="w-full flex flex-col gap-5"
+            role="group"
+            aria-label="Campos del formulario de contacto"
+        >
+            <div
+                class="w-full flex flex-col sm:flex-row gap-5"
+                role="group"
+                aria-label="Información personal"
+            >
+                <div class="relative w-full flex-1">
+                    <label for="name" class="sr-only">
+                        Nombre completo (obligatorio)
+                    </label>
+                    <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        placeholder="Nombre"
+                        class="border border-white/25 text-white placeholder:text-white/80 p-3 w-full rounded-md text-[14px]"
+                        required
+                        autocomplete="name"
+                        aria-required="true"
+                        aria-describedby="name-error"
+                        aria-invalid="false"
+                    />
+                    <div
+                        id="name-error"
+                        class="sr-only text-red-400 text-sm mt-1"
+                        role="alert"
+                        aria-live="polite"
+                    >
+                    </div>
+                </div>
+                <div class="relative w-full flex-1">
+                    <label for="email" class="sr-only">
+                        Correo electrónico (obligatorio)
+                    </label>
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="Correo electrónico"
+                        class="border border-white/25 text-white placeholder:text-white/80 p-3 w-full rounded-md text-[14px]"
+                        required
+                        autocomplete="email"
+                        aria-required="true"
+                        aria-describedby="email-error"
+                        aria-invalid="false"
+                    />
+                    <div
+                        id="email-error"
+                        class="sr-only text-red-400 text-sm mt-1"
+                        role="alert"
+                        aria-live="polite"
+                    >
+                    </div>
+                </div>
+            </div>
+            <div class="relative w-full">
+                <label for="message" class="sr-only">
+                    Mensaje o consulta (obligatorio)
+                </label>
+                <textarea
+                    name="message"
+                    id="message"
+                    placeholder="Déjame saber tu consulta"
+                    cols="30"
+                    rows="5"
+                    class="border border-white/25 text-white placeholder:text-white/80 p-3 w-full resize-none rounded-md text-[14px]"
+                    autocomplete="off"
+                    required
+                    aria-required="true"
+                    aria-describedby="message-error message-hint"
+                    aria-invalid="false"
+                    minlength="10"
+                    maxlength="1000"></textarea>
+                <div id="message-hint" class="sr-only">
+                    Escribe tu consulta o mensaje. Mínimo 10 caracteres, máximo
+                    1000.
+                </div>
+                <div
+                    id="message-error"
+                    class="sr-only text-red-400 text-sm mt-1"
+                    role="alert"
+                    aria-live="polite"
+                >
+                </div>
+            </div>
+            <button
+                type="submit"
+                class="w-full p-3 text-white/80 cursor-pointer rounded-md bg-white/10 not-disabled:hover:bg-white/20 transition-colors duration-300 ease-in-out disabled:text-white/20"
+                aria-describedby="submit-hint"
+            >
+                Enviar
+            </button>
+            <div id="submit-hint" class="sr-only">
+                Enviar formulario de contacto. El botón se habilitará cuando
+                todos los campos sean válidos.
+            </div>
+            <div
+                id="form-status"
+                class="sr-only"
+                role="status"
+                aria-live="polite"
+            >
+            </div>
+        </div>
+    </form>
+</div>

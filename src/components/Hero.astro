@@ -5,20 +5,35 @@ import Nav from "./Nav.astro";
 
 <header
     class="p-6 md:px-14 md:pt-6 md:pb-8 xl:px-28 max-h-[800px] h-[800px] flex flex-col items-center justify-between bg-[url(/background.webp)] bg-no-repeat bg-cover relative overflow-hidden"
+    role="banner"
+    aria-label="Encabezado principal de DragonPunchSpiderZ"
 >
     <svg
         class="absolute bottom-0 z-10 h-[343px]"
         viewBox="0 0 1920 343"
         fill="none"
+        aria-hidden="true"
+        focusable="false"
+        role="presentation"
     >
-        <path d="M1920 342V68L0 1V342H1440Z" fill="black" stroke="black"></path>
+        <path 
+            d="M1920 342V68L0 1V342H1440Z" 
+            fill="black" 
+            stroke="black"
+        ></path>
     </svg>
     <svg
         id="hero-bg-menu"
         class="absolute hidden md:hidden rotate-180 top-0 h-[643px] fill-black/1 backdrop-blur-sm"
         viewBox="0 0 1920 343"
+        aria-hidden="true"
+        focusable="false"
+        role="presentation"
     >
-        <path d="M1920 342V68L0 1V342H1440Z" stroke="none"></path>
+        <path 
+            d="M1920 342V68L0 1V342H1440Z" 
+            stroke="none"
+        ></path>
     </svg>
     <Nav />
     <InfoText />

@@ -3,12 +3,39 @@ import SectionContainer from "@/components/SectionContainer.astro";
 import Title from "../Title.astro";
 ---
 
-<SectionContainer id="about" class="items-start md:items-center gap-6 md:gap-9 flex-col md:flex-row">
-    <Title title="Sobre mí" class="md:hidden" />
-    <img src="/about.webp" alt="Imagen sobre mí" class="w-[251px] h-[315px] lg:w-[449px] lg:h-[563px] object-cover mx-auto" />
-    <div class="flex flex-col space-y-9">
-        <Title title="Sobre mí" class="hidden md:flex" />
-        <p class="md:tracking-[2px] font-medium text-base xl:text-xl leading-[180.037%]">
+<SectionContainer 
+    id="about" 
+    class="items-start md:items-center gap-6 md:gap-9 flex-col md:flex-row"
+    ariaLabel="Sección sobre mí - Información personal y profesional"
+    ariaLabelledBy="about-title-mobile about-title-desktop"
+    role="region"
+>
+    <Title 
+        title="Sobre mí" 
+        class="md:hidden" 
+        level={2}
+        id="about-title-mobile"
+        ariaLabel="Encabezado de la sección sobre mí"
+    />
+    <img 
+        src="/about.webp" 
+        alt="Jorge Enrique Jiménez trabajando en su estudio de diseño, mostrando su pasión por el modelado 3D y la creación audiovisual" 
+        class="w-[251px] h-[315px] lg:w-[449px] lg:h-[563px] object-cover mx-auto"
+        loading="lazy"
+        role="img"
+    />
+    <div class="flex flex-col space-y-9" role="complementary" aria-labelledby="about-title-desktop">
+        <Title 
+            title="Sobre mí" 
+            class="hidden md:flex" 
+            level={2}
+            id="about-title-desktop"
+            ariaLabel="Encabezado de la sección sobre mí"
+        />
+        <p 
+            class="md:tracking-[2px] font-medium text-base xl:text-xl leading-[180.037%]"
+            aria-label="Descripción profesional de Jorge Enrique"
+        >
             Me encanta dar vida a ideas a través del video, el 3D y las
             experiencias interactivas. Desde la edición y producción
             audiovisual, hasta el modelado, animación y diseño para videojuegos,

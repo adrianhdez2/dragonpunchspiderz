@@ -6,6 +6,8 @@ import { ChevronDown } from "@lucide/astro";
 
 <nav
     class="z-10 flex flex-col md:flex-row items-start justify-between w-full max-w-[1440px] gap-y-4 md:gap-y-0"
+    role="navigation"
+    aria-label="Navegación principal"
 >
     <div class="md:w-auto w-full flex items-center justify-between">
         <img
@@ -14,7 +16,14 @@ import { ChevronDown } from "@lucide/astro";
             loading="lazy"
             class="size-10 lg:hidden border border-white shadow rounded-full bg-[#C11C0F]"
         />
-        <button id="button-menu" class="flex md:hidden cursor-pointer"></button>
+        <button 
+            id="button-menu" 
+            class="flex md:hidden cursor-pointer"
+            aria-label="Abrir menú de navegación"
+            aria-expanded="false"
+            aria-controls="menu"
+            type="button"
+        ></button>
     </div>
     <ul
         id="menu"
@@ -29,15 +38,23 @@ import { ChevronDown } from "@lucide/astro";
             <button
                 id="button-submenu"
                 class="flex item-nav items-center justify-between gap-2 uppercase text-white group cursor-pointer"
+                aria-label="Abrir menú de portafolio"
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-controls="submenu-dropdown"
+                type="button"
                 >Portafolio
                 <ChevronDown
                     class="size-4 transform transition duration-300 text-white"
+                    aria-hidden="true"
                 />
             </button>
 
             <div
                 id="submenu-dropdown"
                 class="font-normal hidden text-base mt-2 md:bg-white/10 md:backdrop-blur-md md:divide-y rounded-sm md:shadow-sm w-auto"
+                role="menu"
+                aria-labelledby="button-submenu"
             >
                 <ul
                     class="md:py-2 w-full text-sm text-center md:text-start text-white uppercase"
@@ -47,6 +64,8 @@ import { ChevronDown } from "@lucide/astro";
                             href="#renders"
                             data-url="#renders"
                             class="block md:px-4 py-2 hover:bg-black/10"
+                            role="menuitem"
+                            aria-label="Ir a la sección de Renders 3D"
                             >Renders 3D</a
                         >
                     </li>
@@ -55,6 +74,8 @@ import { ChevronDown } from "@lucide/astro";
                             href="#imagenes"
                             data-url="#imagenes"
                             class="block md:px-4 py-2 hover:bg-black/10"
+                            role="menuitem"
+                            aria-label="Ir a la sección de Imágenes"
                             >Imágenes</a
                         >
                     </li>
@@ -63,6 +84,8 @@ import { ChevronDown } from "@lucide/astro";
                             href="#videos"
                             data-url="#videos"
                             class="block md:px-4 py-2 hover:bg-black/10"
+                            role="menuitem"
+                            aria-label="Ir a la sección de Videos"
                             >Videos</a
                         >
                     </li>
@@ -73,12 +96,15 @@ import { ChevronDown } from "@lucide/astro";
             <a
                 href={"https://api.whatsapp.com/send?phone=9371651880&text=Hola%20Jorge,%20me%20interesa%20tu%20trabajo"}
                 class="text-white bg-black px-3 py-1 rounded-sm text-center text-base font-medium tracking-[0.16px] shadow uppercase"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Contactar por WhatsApp (abre en una nueva ventana)"
             >
                 Contacto
             </a>
         </li>
         <li class="item-nav flex md:hidden">
-            <ul class="flex items-center gap-8 pt-5">
+            <ul class="flex items-center gap-8 pt-5" aria-label="Redes sociales">
                 {
                     redes.slice(0, 4).map((red) => (
                         <li>
@@ -87,8 +113,9 @@ import { ChevronDown } from "@lucide/astro";
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 href={red.url}
+                                aria-label={`Visitar ${red.text} (abre en una nueva ventana)`}
                             >
-                                <red.icon class="w-auto h-5" />
+                                <red.icon class="w-auto h-5" aria-hidden="true" />
                             </a>
                         </li>
                     ))

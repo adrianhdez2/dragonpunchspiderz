@@ -19,11 +19,26 @@ const { title, description, icon: Icon, classColor } = Astro.props;
         (classColor == "green-card" && "hover:bg-gradient-to-r hover:from-green-600 hover:to-green-400 hover:shadow-green-500/50"),
         (classColor == "purple-card" && "hover:bg-gradient-to-r hover:from-pink-600 hover:to-pink-400 hover:shadow-pink-500/50"),
     ]}
+    role="listitem"
+    aria-labelledby={`service-title-${classColor}`}
+    tabindex="0"
 >
-    <Icon class="size-12 lg:size-16 aspect-square" />
+    <Icon 
+        class="size-12 lg:size-16 aspect-square" 
+        aria-hidden="true"
+        role="presentation"
+    />
     <div class="flex flex-col space-y-3">
-        <h3 class="text-base lg:text-xl font-semibold">{title}</h3>
-        <p class="text-sm lg:text-base font-normal">
+        <h3 
+            id={`service-title-${classColor}`}
+            class="text-base lg:text-xl font-semibold"
+        >
+            {title}
+        </h3>
+        <p 
+            class="text-sm lg:text-base font-normal"
+            aria-label={`Descripción del servicio: ${description}`}
+        >
             {description}
         </p>
     </div>

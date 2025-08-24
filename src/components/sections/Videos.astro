@@ -5,16 +5,38 @@ import Title from "../Title.astro";
 import VideoPlayer from "./VideoPlayer";
 ---
 
-<SectionContainer id="videos" class="flex-col gap-6 md:gap-10 lg:gap-16">
-    <Title title="Videos" />
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-9">
+<SectionContainer 
+    id="videos" 
+    class="flex-col gap-6 md:gap-10 lg:gap-16"
+    ariaLabel="Sección de videos - Galería de trabajos audiovisuales"
+    ariaLabelledBy="videos-title"
+    role="region"
+>
+    <Title 
+        title="Videos" 
+        level={2}
+        id="videos-title"
+        ariaLabel="Encabezado de la galería de videos"
+    />
+    <div 
+        class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-9"
+        role="list"
+        aria-label="Lista de videos de trabajos audiovisuales"
+    >
         {
-            VIDEOS.map(({src, poster}) => (
-                <VideoPlayer
-                    client:load
-                    src={src}
-                    poster={poster}
-                />
+            VIDEOS.map(({src, poster}, index) => (
+                <div 
+                    role="listitem"
+                    aria-label={`Video ${index + 1} de ${VIDEOS.length}`}
+                >
+                    <VideoPlayer
+                        client:load
+                        src={src}
+                        poster={poster}
+                        videoIndex={index}
+                        totalVideos={VIDEOS.length}
+                    />
+                </div>
             ))
         }
     </div>

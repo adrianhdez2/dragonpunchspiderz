@@ -79,3 +79,16 @@ body {
 .shadow-footer {
     box-shadow: 0 -4px 38.3px 0 rgba(0, 0, 0, 0.50);
 }
+
+/* Clase para contenido accesible solo para lectores de pantalla */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

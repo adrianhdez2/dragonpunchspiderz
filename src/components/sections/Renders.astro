@@ -4,23 +4,50 @@ import Title from "../Title.astro";
 import CardRenders from "./CardRenders.astro";
 ---
 
-<SectionContainer id="renders" class="flex-col gap-6 md:gap-10 lg:gap-16">
-    <Title title="Renders 3D" />
+<SectionContainer 
+    id="renders" 
+    class="flex-col gap-6 md:gap-10 lg:gap-16"
+    ariaLabel="Sección de renders 3D - Galería de trabajos"
+    ariaLabelledBy="renders-title"
+    role="region"
+>
+    <Title 
+        title="Renders 3D" 
+        level={2}
+        id="renders-title"
+        ariaLabel="Encabezado de la galería de renders 3D"
+    />
     <div
         class="gallery grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-[700px_auto] gap-4 w-full"
+        role="img"
+        aria-label="Galería de renders 3D organizados en diseño de mosaico"
     >
-        <div class="grid grid-rows-2 gap-4 w-full h-auto max-w-[700px]">
+        <div 
+            class="grid grid-rows-2 gap-4 w-full h-auto max-w-[700px]"
+            role="group"
+            aria-label="Grupo principal de renders grandes"
+        >
             <CardRenders size="large" imgSrc="chimenea.webp" />
             <div
                 class="grid grid-cols-2 h-auto md:grid-cols-1 md:grid-rows-2 gap-4 w-full"
+                role="group"
+                aria-label="Subgrupo de renders pequeños"
             >
                 <CardRenders size="small" imgSrc="libros.webp" />
                 <CardRenders size="small" imgSrc="dibujo.webp" />
             </div>
         </div>
-        <div class="grid grid-rows-[auto_auto] gap-4 w-full">
+        <div 
+            class="grid grid-rows-[auto_auto] gap-4 w-full"
+            role="group"
+            aria-label="Grupo secundario de renders medianos"
+        >
             <CardRenders size="medium" imgSrc="botella.webp" />
-            <div class="grid grid-cols-2 md:grid-cols-1 md:grid-rows-2 gap-4">
+            <div 
+                class="grid grid-cols-2 md:grid-cols-1 md:grid-rows-2 gap-4"
+                role="group"
+                aria-label="Subgrupo de renders medianos adicionales"
+            >
                 <CardRenders size="medium" imgSrc="mascara.webp" />
                 <CardRenders size="medium" imgSrc="hojas.webp" />
             </div>

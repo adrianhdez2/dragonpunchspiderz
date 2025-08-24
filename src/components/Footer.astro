@@ -3,39 +3,75 @@ import { redes } from "@/utils/constants";
 import Form from "./Form.astro";
 ---
 
-<footer class="flex flex-col -space-y-[130px]">
-    <div class="flex mx-auto flex-col items-center justify-center gap-4 z-10">
+<footer
+    class="flex flex-col -space-y-[130px]"
+    role="contentinfo"
+    aria-label="Pie de página con información de contacto y redes sociales"
+>
+    <div
+        class="flex mx-auto flex-col items-center justify-center gap-4 z-10"
+        role="banner"
+        aria-label="Perfil y redes sociales de DragonPunchSpiderZ"
+    >
         <img
             src="/footer_img.webp"
-            alt="Imagen de DragonPunchSpiderZ"
+            alt="Fotografía de perfil de Jorge Enrique Jiménez Moreno, DragonPunchSpiderZ, diseñador audiovisual especializado en modelado 3D"
             width="220"
             height="220"
             class="aspect-square rounded-full"
+            loading="lazy"
+            role="img"
         />
-        <ul class="flex items-center gap-10">
+        <ul
+            class="flex items-center gap-10"
+            role="list"
+            aria-label="Enlaces a redes sociales"
+        >
             {
-                redes.map((red) => (
-                    <li>
+                redes.map((red, index) => (
+                    <li role="listitem">
                         <a
                             class="text-[#BBBBBA] hover:text-white transition-colors duration-300"
                             target="_blank"
                             rel="noopener noreferrer"
                             href={red.url}
+                            aria-label={`Visitar ${red.text} (abre en una nueva ventana)`}
+                            tabindex="0"
                         >
-                            <red.icon class="w-auto h-6" />
+                            <red.icon
+                                class="w-auto h-6"
+                                aria-hidden="true"
+                                focusable="false"
+                            />
+                            <span class="sr-only">{red.text}</span>
                         </a>
                     </li>
                 ))
             }
         </ul>
     </div>
-    <section id="contacto" class="bg-black p-6 md:px-14 md:pb-8 xl:px-28 pt-52 xl:pb-14 gap-14 shadow-footer">
-        <div class="w-full">
-            <!-- <Form /> -->
-        </div>
-        <div class="pt-14 flex flex-col items-center gap-10">
-            <hr class="h-0.5 w-full bg-white/20" />
-            <p class="text-base text-center font-normal text-white/50 tracking-[10%]">
+    <section
+        id="contacto"
+        class="bg-black p-6 md:px-14 md:pb-8 xl:px-28 pt-52 xl:pb-14 gap-14 shadow-footer"
+        role="region"
+        aria-label="Sección de contacto y información legal"
+        aria-labelledby="contact-heading"
+    >
+        <!-- <Form /> -->
+        <div
+            class="pt-14 flex flex-col items-center gap-10"
+            role="contentinfo"
+            aria-label="Información legal y derechos de autor"
+        >
+            <hr
+                class="h-0.5 w-full bg-white/20"
+                role="separator"
+                aria-hidden="true"
+            />
+            <p
+                class="text-base text-center font-normal text-white/50 tracking-[10%]"
+                aria-label="Información de derechos de autor"
+            >
                 © 2025 DragonPunchSpiderZ. Todos los derechos reservados.
             </p>
         </div>

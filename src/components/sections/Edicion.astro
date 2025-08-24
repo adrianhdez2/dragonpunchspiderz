@@ -4,17 +4,43 @@ import Title from "../Title.astro";
 import CardEdicion from "./CardEdicion.astro";
 ---
 
-<SectionContainer id="imagenes" class="flex-col gap-6 md:gap-10 lg:gap-16">
-    <Title title="Edición de imágenes" />
+<SectionContainer 
+    id="imagenes" 
+    class="flex-col gap-6 md:gap-10 lg:gap-16"
+    ariaLabel="Sección de edición de imágenes - Galería de trabajos gráficos"
+    ariaLabelledBy="edicion-title"
+    role="region"
+>
+    <Title 
+        title="Edición de imágenes" 
+        level={2}
+        id="edicion-title"
+        ariaLabel="Encabezado de la galería de edición de imágenes"
+    />
     <div
         class="gallery grid grid-cols-1 grid-rows-[repeat(3,300px)] xl:grid-rows-[500px_400px_400px] gap-4 w-full"
+        role="img"
+        aria-label="Galería de imágenes editadas organizadas en diseño de mosaico"
     >
-        <CardEdicion size="large" imgSrc="portada_1.webp" width={1200} height={1200} />
-        <div class="grid sm:grid-cols-2 md:grid-cols-[auto_400px] gap-4">
+        <CardEdicion 
+            size="large" 
+            imgSrc="portada_1.webp" 
+            width={1200} 
+            height={1200} 
+        />
+        <div 
+            class="grid sm:grid-cols-2 md:grid-cols-[auto_400px] gap-4"
+            role="group"
+            aria-label="Primer grupo de imágenes editadas"
+        >
             <CardEdicion size="medium" imgSrc="portada_4.webp" width={1200} height={675} />
             <CardEdicion size="medium" imgSrc="portada_5.webp" width={1200} height={1200} />
         </div>
-        <div class="grid sm:grid-cols-2 md:grid-cols-[400px_auto] gap-4">
+        <div 
+            class="grid sm:grid-cols-2 md:grid-cols-[400px_auto] gap-4"
+            role="group"
+            aria-label="Segundo grupo de imágenes editadas"
+        >
             <CardEdicion size="medium" imgSrc="portada_3.webp" width={1200} height={1440} />
             <CardEdicion size="medium" imgSrc="portada_2.webp" width={1200} height={675} />
         </div>

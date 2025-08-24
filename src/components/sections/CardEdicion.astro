@@ -6,9 +6,19 @@ interface Props {
     imgSrc: string;
     width: number;
     height: number;
+    altText?: string;
 }
 
-const { size, imgSrc, width, height } = Astro.props;
+const { size, imgSrc, width, height, altText } = Astro.props;
+
+// Función para generar descripción alt basada en el nombre del archivo
+const generateAltText = (filename: string): string => {
+    const baseName = filename.replace('.webp', '').replace(/[-_]/g, ' ');
+    const imageNumber = baseName.match(/portada (\d+)/)?.[1] || '1';
+    return `Imagen editada de portada ${imageNumber} - Trabajo de edición gráfica y diseño`;
+};
+
+const finalAltText = altText || generateAltText(imgSrc);
 ---
 
 <a
@@ -16,16 +26,26 @@ const { size, imgSrc, width, height } = Astro.props;
     data-pswp-width={width}
     data-pswp-height={height}
     data-cropped="true"
+    target="_blank"
+    rel="noopener noreferrer"
     class:list={[
         "rounded-xl shadow-custom overflow-hidden group cursor-pointer w-full relative",
         size === "medium" && "h-auto lg:h-[300px] xl:h-[400px]",
         size === "large" && "h-[300px] xl:h-[500px]",
     ]}
+    aria-label={`Ver ${finalAltText} en tamaño completo (abre en nueva ventana)`}
+    role="button"
+    tabindex="0"
 >
     <img
         src={`/imagenes/${imgSrc}`}
         class="rounded-xl w-full h-full object-cover group-hover:scale-105 group-hover:-rotate-1 transition-transform duration-300"
-        alt=""
+        alt={finalAltText}
+        loading="lazy"
+        role="img"
+        aria-describedby="preview-msg"
+        width={width}
+        height={height}
     />
     <PreviewMsg />
 </a>
