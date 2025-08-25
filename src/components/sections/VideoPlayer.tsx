@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 import videojs from "video.js";
+import "videojs-youtube";
+import "video.js/dist/video-js.css";
 import "video.js/dist/video-js.css";
 
 interface Props {
@@ -13,14 +15,23 @@ export default function VideoPlayer({ src, poster, videoIndex = 0, totalVideos =
     const videoRef = useRef<HTMLVideoElement | null>(null);
     const playerRef = useRef<ReturnType<typeof videojs> | null>(null);
 
+    // 🔹 Detectar si es un link de YouTube
+    const isYouTube = src.includes("youtube.com") || src.includes("youtu.be");
+
     // Función para generar descripción basada en el nombre del archivo
     const generateVideoDescription = (filename: string): string => {
         const baseName = filename.replace('.mp4', '').replace(/[-_]/g, ' ');
         return `Video de ${baseName} - Trabajo audiovisual profesional`;
     };
 
-    const videoDescription = generateVideoDescription(src);
-    const videoTitle = `Video ${videoIndex + 1} de ${totalVideos}: ${src.replace('.mp4', '').replace(/[-_]/g, ' ')}`;
+    const videoDescription = isYouTube
+        ? "Video alojado en YouTube - Trabajo audiovisual profesional"
+        : generateVideoDescription(src);
+
+    const videoTitle = `Video ${videoIndex + 1} de ${totalVideos}: ${isYouTube
+        ? "YouTube Video"
+        : src.replace(".mp4", "").replace(/[-_]/g, " ")
+        }`;
 
     useEffect(() => {
         if (videoRef.current && !playerRef.current) {
@@ -29,7 +40,12 @@ export default function VideoPlayer({ src, poster, videoIndex = 0, totalVideos =
                 fluid: true,
                 preload: "auto",
                 poster: poster ? `/thumbnails/${poster}` : undefined,
-                sources: [{ src: `/videos/${src}`, type: "video/mp4" }],
+                techOrder: isYouTube ? ["youtube"] : ["html5"],
+                sources: [
+                    isYouTube
+                        ? { src, type: "video/youtube" }
+                        : { src: `/videos/${src}`, type: "video/mp4" },
+                ],
                 // Configuraciones de accesibilidad
                 playbackRates: [0.5, 1, 1.25, 1.5, 2],
                 responsive: true,
@@ -41,7 +57,13 @@ export default function VideoPlayer({ src, poster, videoIndex = 0, totalVideos =
                     large: 700,
                     xlarge: 800,
                     huge: 900
-                }
+                },
+                youtube: isYouTube
+                    ? {
+                        modestbranding: 1,
+                        rel: 0,
+                    }
+                    : undefined,
             });
 
             // Agregar atributos de accesibilidad después de la inicialización
@@ -51,7 +73,7 @@ export default function VideoPlayer({ src, poster, videoIndex = 0, totalVideos =
                     videoElement.setAttribute('aria-label', videoDescription);
                     videoElement.setAttribute('role', 'application');
                     videoElement.setAttribute('tabindex', '0');
-                    
+
                     // Agregar título al video
                     const titleElement = document.createElement('span');
                     titleElement.className = 'sr-only';
@@ -67,26 +89,26 @@ export default function VideoPlayer({ src, poster, videoIndex = 0, totalVideos =
     }, [src, poster, videoDescription, videoTitle]);
 
     return (
-        <div 
+        <div
             className="video-container"
             role="region"
             aria-labelledby={`video-title-${videoIndex}`}
             aria-describedby={`video-desc-${videoIndex}`}
         >
-            <h3 
+            <h3
                 id={`video-title-${videoIndex}`}
                 className="sr-only"
             >
                 {videoTitle}
             </h3>
-            <p 
+            <p
                 id={`video-desc-${videoIndex}`}
                 className="sr-only"
             >
                 {videoDescription}
             </p>
-            <video 
-                ref={videoRef} 
+            <video
+                ref={videoRef}
                 className="video-js vjs-big-play-centered"
                 aria-label={videoDescription}
                 role="application"
