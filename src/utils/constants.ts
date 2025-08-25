@@ -72,6 +72,6 @@ export const VIDEOS = [
     },
     {
         src: "https://www.youtube.com/watch?v=2ioJUSw1UTk",
-        poster: "cacha-cacao-doc.webp",
+        // poster: "cacha-cacao-doc.webp",
     }
 ]
