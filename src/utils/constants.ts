@@ -70,4 +70,8 @@ export const VIDEOS = [
         src: "estatuas.mp4",
         poster: "estatuas.webp",
     },
+    {
+        src: "https://www.youtube.com/watch?v=2ioJUSw1UTk",
+        poster: "cacha-cacao-doc.webp",
+    }
 ]
